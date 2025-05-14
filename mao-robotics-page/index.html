@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mao Robotics</title>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-straight/css/uicons-bold-straight.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-straight/css/uicons-solid-straight.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-straight/css/uicons-regular-straight.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/modals.css">
+</head>
+
+  <body>
+    <header class="header">
+            <div class="logo">
+                <div class="header__content">
+                     <a href="./MaoIndex.html"><img alt="Mao Robotics Logo" src="./assets/Logo.png" /></a>
+                </div>
+        
+            </div>
+        <div class="header-piola">
+    </header>
+    <div id="navbar-container"></div>
+    <main class="container">
+        <div class="grid-bg"></div>
+        <section id="workers" class="section">
+            <h2 class="tittle-section"><i class="fi fi-ss-robot"></i> Gestión de Trabajadores</h2>
+            <div class="card">
+                <div class="card-header">
+                <h3><i class="fi fi-ss-plus"></i> Agregar Trabajador</h3></div>
+                <div class="card-body">
+                <form class="form" id="addWorker" method="POST">
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="worker-name"><i class="fi fi-ss-user"></i> Nombre (mao)</label>
+                            <input type="text" id="worker-name" name="mao" required>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="worker-factory"><i class="fi fi-ss-building"></i> Fábrica de Origen</label>
+                            <input type="text" id="worker-factory" name="fabrica_Origen" required>
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="worker-profession"><i class="fi fi-ss-badge"></i> ID Profesión</label>
+                            <input type="text" id="worker-profession" name="id_Profesion" required>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="worker-place"><i class="fi fi-ss-marker"></i> ID Lugar Asignado</label>
+                            <input type="text" id="worker-place" name="id_LugarAsignado" required>
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="worker-energy"><i class="fi fi-ss-bolt"></i> Energía</label>
+                            <input type="number" id="worker-energy" name="energia" required>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="worker-date"><i class="fi fi-ss-calendar"></i> Fecha Inicio</label>
+                            <input type="date" id="worker-date" name="fecha_Inicio" required>
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="worker-status"><i class="fi fi-ss-settings"></i> En Ejecución</label>
+                            <select id="worker-status" name="ejecucion" required>
+                                <option value="true">Sí</option>
+                                <option value="false">No</option>
+                            </select>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="worker-warranty"><i class="fi fi-ss-shield-check"></i> Límite Garantía</label>
+                            <input type="date" id="worker-warranty" name="limite_Garantia" required>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="worker-maintenance"><i class="fi fi-ss-tools"></i> Meses Mantenimiento</label>
+                            <input type="number" id="worker-maintenance" name="meses_Mantenimiento" required>
+                            <div class="input-border"></div>
+                        </div>
+                </div>
+                    <button type="submit" class="btn btn--primary">
+                        <i class="fi fi-ss-save"></i> Agregar Trabajador
+                    </button>
+                </form>
+            </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                <h3><i class="fi fi-ss-search"></i> Buscar Trabajador</h3></div>
+                <div class="card-body">
+                <form class="form" id="searchWorkers" method="GET">
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="search-worker-id"><i class="fi fi-ss-id-badge"></i> ID</label>
+                            <input type="text" id="search-worker-id" name="id">
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="search-worker-name"><i class="fi fi-ss-user"></i> Nombre (mao)</label>
+                            <input type="text" id="search-worker-name" name="mao">
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                    <button type="submit" class="btn btn--secondary">
+                        <i class="fi fi-ss-search"></i> Buscar
+                    </button>
+                    <a id="obtenerTodosW" class="btn btn--light" href="#">
+                        <i class="fi fi-ss-list"></i> Mostrar Todos
+                    </a>
+                </div>
+                </form>
+            </div>
+        </div>
+
+            <div class="table">
+                <table class="table__content">
+                    <thead>
+                        <tr>
+                            <th><i class="fi fi-ss-id-badge"></i> ID</th>
+                            <th><i class="fi fi-ss-robot"></i> Nombre</th>
+                            <th><i class="fi fi-ss-building"></i> Fábrica</th>
+                            <th><i class="fi fi-ss-bolt"></i> Energía</th>
+                            <th><i class="fi fi-ss-clock"></i> Estado</th>
+                            <th><i class="fi fi-ss-settings"></i> Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id ="workerData">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="places" class="section">
+            <h2 class="tittle-section"><i class="fi fi-ss-building"></i> Gestión de Lugares</h2>
+            <div class="card">
+                <div class="card-header">
+                <h3><i class="fi fi-ss-plus"></i> Agregar Lugar</h3></div>
+                <div class="card-body">
+                <form class="form" id="addLocation" method="POST">
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="place-name"><i class="fi fi-ss-signature"></i> Nombre</label>
+                            <input type="text" id="place-name" name="Nombre" required>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="place-location"><i class="fi fi-ss-map-marker"></i> Ubicación</label>
+                            <input type="text" id="place-location" name="Ubicacion" required>
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="place-schedule"><i class="fi fi-ss-clock"></i> Horario</label>
+                            <input type="text" id="place-schedule" name="Horario" placeholder="Ej: 8:00 AM - 7:00 PM" required>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="place-capacity"><i class="fi fi-ss-users"></i> Capacidad de Personas</label>
+                            <input type="number" id="place-capacity" name="Capacidad_Personas" required>
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="place-dependency"><i class="fi fi-ss-sitemap"></i> Dependencia</label>
+                            <input type="text" id="place-dependency" name="Dependencia" required>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="place-services"><i class="fi fi-ss-concierge-bell"></i> Servicios</label>
+                            <input type="text" id="place-services" name="Servicios" required>
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="place-priority"><i class="fi fi-ss-exclamation"></i> Prioridad</label>
+                            <select id="place-priority" name="Prioridad" required>
+                                <option value="Alta">Alta</option>
+                                <option value="Media">Media</option>
+                                <option value="Baja">Baja</option>
+                            </select>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="place-equipment"><i class="fi fi-ss-tools"></i> Equipamiento</label>
+                            <input type="text" id="place-equipment" name="Equimamiento" required>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="place-access"><i class="fi fi-ss-wheelchair"></i> Accesibilidad</label>
+                            <select id="place-access" name="Accesibilidad" required>
+                                <option value="Todo el MUndo">Todo el Mundo</option>
+                                <option value="Personas Específicas">Personas Específicas</option>
+                                <option value="Personal Autorizado">Personal Autorizado</option>
+                            </select>
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form__row">
+                    <div class="form__group">
+                        <label for="place-date"><i class="fi fi-ss-calendar-plus"></i> Fecha Creación</label>
+                        <input type="number" id="place-date" name="Fecha_creacion" placeholder="Año (YYYY)" required>
+                        <div class="input-border"></div>
+                    </div>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary">
+                        <i class="fi fi-ss-save"></i> Agregar Lugar
+                    </button>
+                </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                <h3><i class="fi fi-ss-search"></i> Buscar Lugar</h3></div>
+                <div class="card-body">
+                <form class="form" id="searchLocations" method="GET">
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="search-place-id"><i class="fi fi-ss-id-badge"></i> ID</label>
+                            <input type="text" id="search-place-id" name="id">
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="search-place-name"><i class="fi fi-ss-signature"></i> Nombre</label>
+                            <input type="text" id="search-place-name" name="Nombre">
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                    <button type="submit" class="btn btn--secondary">
+                        <i class="fi fi-ss-search"></i> Buscar
+                    </button>
+                    <a id="obtenerTodosL" class="btn btn--light" href="#">
+                        <i class="fi fi-ss-list"></i> Mostrar Todos
+                    </a>
+                </div>
+                </form>
+            </div>
+            </div>
+
+            <div class="table">
+                <table class="table__content">
+                    <thead>
+                        <tr>
+                            <th><i class="fi fi-ss-id-badge"></i> ID</th>
+                            <th><i class="fi fi-ss-signature"></i> Nombre</th>
+                            <th><i class="fi fi-ss-map-marker"></i> Ubicación</th>
+                            <th><i class="fi fi-ss-users"></i> Capacidad</th>
+                            <th><i class="fi fi-ss-exclamation"></i> Prioridad</th>
+                            <th><i class="fi fi-ss-settings"></i> Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="locationData">
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="professions" class="section">
+            <h2 class="tittle-section"><i class="fi fi-ss-user-gear"></i> Gestión de Profesiones</h2>
+            <div class="card">
+                <div class="card-header">
+                <h3><i class="fi fi-ss-plus"></i> Agregar Profesión</h3></div>
+                <div class="card-body">
+                <form class="form" id="addProfession" method="POST">
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="prof-name"><i class="fi fi-ss-signature"></i> Profesión</label>
+                            <input type="text" id="prof-name" name="profesion" required>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="prof-role"><i class="fi fi-ss-user-tag"></i> Rol</label>
+                            <input type="text" id="prof-role" name="rol" required>
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="prof-studies"><i class="fi fi-ss-graduation-cap"></i> Estudios</label>
+                            <input type="text" id="prof-studies" name="estudios" required>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="prof-experience"><i class="fi fi-ss-clock"></i> Experiencia Requerida</label>
+                            <input type="text" id="prof-experience" name="experiencia-requerida" required>
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="prof-skill"><i class="fi fi-ss-laptop-code"></i> Habilidad Técnica</label>
+                            <input type="text" id="prof-skill" name="habilidad-tecnica" required>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="prof-soft"><i class="fi fi-ss-comments"></i> Habilidad Blanda</label>
+                            <input type="text" id="prof-soft" name="habilidad-blanda" required>
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="prof-tool"><i class="fi fi-ss-tools"></i> Herramienta</label>
+                            <input type="text" id="prof-tool" name="herramienta" required>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="prof-salary"><i class="fi fi-ss-money-bill-wave"></i> Salario</label>
+                            <input type="number" id="prof-salary" name="salario" required>
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="prof-schedule"><i class="fi fi-ss-business-time"></i> Horario</label>
+                            <input type="text" id="prof-schedule" name="horario" required>
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn--primary">
+                        <i class="fi fi-ss-save"></i> Agregar Profesión
+                    </button>
+                </form>
+            </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                <h3><i class="fi fi-ss-search"></i> Buscar Profesión</h3></div>
+                <div class="card-body">
+                <form class="form" id="searchProfessions" method="GET">
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="search-prof-id"><i class="fi fi-ss-id-badge"></i> ID</label>
+                            <input type="text" id="search-prof-id" name="id">
+                            <div class="input-border"></div>
+                        </div>
+                        <div class="form__group">
+                            <label for="search-prof-name"><i class="fi fi-ss-signature"></i> Profesión</label>
+                            <input type="text" id="search-prof-name" name="profesion">
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                    <button type="submit" class="btn btn--secondary">
+                        <i class="fi fi-ss-search"></i> Buscar
+                    </button>
+                    <a id="obtenerTodosP" class="btn btn--light" href="#">
+                        <i class="fi fi-ss-list"></i> Mostrar Todos
+                    </a>
+                    </div>
+                </form>
+            </div>
+            </div>
+
+            <div class="table">
+                <table class="table__content">
+                    <thead>
+                        <tr>
+                            <th><i class="fi fi-ss-id-badge"></i> ID</th>
+                            <th><i class="fi fi-ss-signature"></i> Profesión</th>
+                            <th><i class="fi fi-ss-user-tag"></i> Rol</th>
+                            <th><i class="fi fi-ss-money-bill-wave"></i> Salario</th>
+                            <th><i class="fi fi-ss-settings"></i> Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="professionData">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Mao Robotics - Práctica de BD</p>
+        <p>Germán Alejandro Marcillo Martínez, Juan David Moncayo López y Marian Alejandra Pabón Caicedo</p>
+    </footer>
+
+    <div id="modals-container"></div>
+
+    <script src="./js/navbar.js" defer></script>
+    <script src="./js/modals.js" defer></script>
+    <script src="./js/main.js" defer></script>
+  </body>
+</html>

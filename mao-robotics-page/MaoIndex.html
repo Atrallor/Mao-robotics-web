@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/modals.css">
+  <title>Mao Company</title>
+</head>
+
+<body>
+  <h1>Mao Robotics COMPANY</h1>
+  <a href="./index.html" style="display: inline-block; padding: 8px 16px; background-color: #140c1a; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">Volver a Página Principal</a>
+
+  <div class="tabs">
+    <button class="tab-button active" data-tab="compatibility">Compatibilidades</button>
+    <button class="tab-button" data-tab="androids">Androides</button>
+    <button class="tab-button" data-tab="phsycos">Phsycos</button>
+    <button class="tab-button" data-tab="traits">Rasgos</button>
+    <button class="tab-button" data-tab="accesories">Accesorios</button>
+    <button class="tab-button" data-tab="categories">Categorías</button>
+  </div>
+
+ 
+  <div id="compatibility" class="tab-content active">
+    <h2>Compatibilidades</h2>
+
+    
+    <form id="search-compatibility-form" class="search-form">
+      <div class="form-group">
+        <label for="search-compatibility-model">Buscar por Modelo:</label>
+        <input type="text" id="search-compatibility-model" placeholder="Ingrese modelo/versión">
+        <button type="submit" class="btn btn-secondary">Buscar</button>
+      </div>
+    </form>
+
+   
+    <form id="create-compatibility-form" class="create-form">
+      <h3>Nueva Compatibilidad</h3>
+      <div class="form-group">
+        <label for="new-compatibility-model">Modelo/Versión:</label>
+        <input type="text" id="new-compatibility-model" required>
+      </div>
+
+      <div class="form-group">
+        <label for="new-compatibility-description">Descripción:</label>
+        <textarea id="new-compatibility-description" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Crear Compatibilidad</button>
+    </form>
+
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Modelo/Versión</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody id="compatibilityData"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="editCompatibilityModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Editar Compatibilidad</h2>
+      <form id="edit-compatibility-form">
+        <input type="hidden" id="edit-compatibility-id">
+
+        <div class="form-group">
+          <label for="edit-compatibility-model">Modelo/Versión:</label>
+          <input type="text" id="edit-compatibility-model" required>
+        </div>
+
+        <div class="form-group">
+          <label for="edit-compatibility-description">Descripción:</label>
+          <textarea id="edit-compatibility-description" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      </form>
+    </div>
+  </div>
+
+  
+<div id="androids" class="tab-content">
+    <h2>Androides</h2>
+
+    
+    <div class="search-forms">
+        <form id="search-android-name-form" class="search-form">
+            <div class="form-group">
+                <label for="search-android-name">Buscar por Nombre:</label>
+                <input type="text" id="search-android-name" placeholder="Nombre del android">
+                <button type="submit" class="btn btn-secondary">Buscar</button>
+            </div>
+        </form>
+
+        <form id="search-android-color-form" class="search-form">
+            <div class="form-group">
+                <label for="search-android-color">Buscar por Color ID:</label>
+                <input type="number" id="search-android-color" placeholder="ID del color">
+                <button type="submit" class="btn btn-secondary">Buscar</button>
+            </div>
+        </form>
+
+        <form id="search-android-task-model-form" class="search-form">
+            <div class="form-group">
+                <label>Buscar por Task y Modelo:</label>
+                <div class="form-row">
+                    <input type="number" id="search-android-task" placeholder="ID Task">
+                    <input type="number" id="search-android-model" placeholder="ID Modelo">
+                    <button type="submit" class="btn btn-secondary">Buscar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Garantía</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                    <th>Color ID</th>
+                    <th>Task ID</th>
+                    <th>Modelo ID</th>
+                    <th>Phsyco ID</th>
+                </tr>
+            </thead>
+            <tbody id="androidsData"></tbody>
+        </table>
+    </div>
+</div>
+
+  
+  <div id="phsycos" class="tab-content">
+    <h2>Phsycos</h2>
+
+    
+    <form id="search-phsyco-form" class="search-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="search-phsyco-name">Nombre:</label>
+          <input type="text" id="search-phsyco-name" placeholder="Nombre del phsyco">
+        </div>
+        <div class="form-group">
+          <label for="search-phsyco-corruption">Corrupción mínima:</label>
+          <input type="number" id="search-phsyco-corruption" placeholder="Nivel de corrupción">
+        </div>
+        <button type="submit" class="btn btn-secondary">Buscar</button>
+      </div>
+    </form>
+
+    
+    <form id="create-phsyco-form" class="create-form">
+      <h3>Nuevo Phsyco</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="new-phsyco-name">Nombre:</label>
+          <input type="text" id="new-phsyco-name" required>
+        </div>
+        <div class="form-group">
+          <label for="new-phsyco-corruption">Corrupción:</label>
+          <input type="number" id="new-phsyco-corruption" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="new-phsyco-description">Descripción:</label>
+        <textarea id="new-phsyco-description" required></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="new-phsyco-ptrait">Rasgo Positivo ID:</label>
+          <input type="number" id="new-phsyco-ptrait" required>
+        </div>
+        <div class="form-group">
+          <label for="new-phsyco-ntrait">Rasgo Negativo ID:</label>
+          <input type="number" id="new-phsyco-ntrait" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Crear Phsyco</button>
+    </form>
+
+    
+    <form id="set-traits-form" class="create-form">
+      <h3>Asignar Rasgos a Phsyco</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="set-traits-phsyco-id">Phsyco ID:</label>
+          <input type="number" id="set-traits-phsyco-id" required>
+        </div>
+        <div class="form-group">
+          <label for="set-traits-positive">Rasgo Positivo ID:</label>
+          <input type="number" id="set-traits-positive" required>
+        </div>
+        <div class="form-group">
+          <label for="set-traits-negative">Rasgo Negativo ID:</label>
+          <input type="number" id="set-traits-negative" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Asignar Rasgos</button>
+    </form>
+
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Corrupción</th>
+            <th>Rasgos Positivos</th>
+            <th>Rasgos Negativos</th>
+            <th>Tipo Inteligencia</th>
+            <th>Color</th>
+          </tr>
+        </thead>
+        <tbody id="phsycosData"></tbody>
+      </table>
+    </div>
+  </div>
+
+  
+  <div id="editPhsycoModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Editar Nivel de Corrupción</h2>
+      <form id="edit-phsyco-form">
+        <input type="hidden" id="edit-phsyco-id">
+
+        <div class="form-group">
+          <label for="edit-phsyco-name">Nombre:</label>
+          <input type="text" id="edit-phsyco-name" disabled>
+        </div>
+
+        <div class="form-group">
+          <label for="edit-phsyco-corruption">Nuevo nivel de corrupción:</label>
+          <input type="number" id="edit-phsyco-corruption" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Actualizar Corrupción</button>
+      </form>
+    </div>
+  </div>
+
+  
+  <div id="traits" class="tab-content">
+    <h2>Rasgos</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Tipo Inteligencia</th>
+          </tr>
+        </thead>
+        <tbody id="traitsData"></tbody>
+      </table>
+    </div>
+  </div>
+
+
+<div id="accesories" class="tab-content">
+    <h2>Accesorios</h2>
+    
+   
+    <form id="search-accessory-form" class="search-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="search-accessory-model">Modelo ID:</label>
+                <input type="number" id="search-accessory-model" placeholder="ID del modelo">
+            </div>
+            <div class="form-group">
+                <label for="search-accessory-warranty">Años de garantía:</label>
+                <input type="number" id="search-accessory-warranty" placeholder="Años de garantía">
+            </div>
+            <button type="submit" class="btn btn-secondary">Buscar</button>
+        </div>
+    </form>
+    
+  
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Modelo ID</th>
+                    <th>Garantía (años)</th>
+                </tr>
+            </thead>
+            <tbody id="accesoriesData"></tbody>
+        </table>
+    </div>
+</div>
+  
+  <div id="categories" class="tab-content">
+    <h2>Categorías</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody id="categoriesData"></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="mao.js"></script>
+</body>
+</html>

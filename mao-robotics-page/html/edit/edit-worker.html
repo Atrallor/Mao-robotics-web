@@ -1,0 +1,70 @@
+<div id="editWorkerModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h3><i class="fi fi-ss-robot"></i> Editar Trabajador</h3></div>
+        <div class="modal-body">
+        <form class="form">
+        <div class="form__row">
+          <div class="form__group">
+            <label for="worker-name"><i class="fi fi-ss-user"></i> Nombre (mao)</label>
+            <input type="text" id="edit-worker-name" name="mao" readonly>
+            <div class="input-border"></div>
+        </div>
+        <div class="form__group">
+            <label for="worker-factory"><i class="fi fi-ss-building"></i> Fábrica de Origen</label>
+            <input type="text" id="edit-worker-factory" name="fabrica_Origen" required>
+            <div class="input-border"></div>
+        </div>
+    </div>
+    <div class="form__row">
+        <div class="form__group">
+            <label for="worker-profession"><i class="fi fi-ss-badge"></i> ID Profesión</label>
+            <input type="text" id="edit-worker-profession" name="id_Profesion" required>
+            <div class="input-border"></div>
+        </div>
+        <div class="form__group">
+            <label for="worker-place"><i class="fi fi-ss-marker"></i> ID Lugar Asignado</label>
+            <input type="text" id="edit-worker-place" name="id_LugarAsignado" required>
+            <div class="input-border"></div>
+        </div>
+    </div>
+    
+    <div class="form__row">
+        <div class="form__group">
+            <label for="worker-energy"><i class="fi fi-ss-bolt"></i> Energía</label>
+            <input type="number" id="edit-worker-energy" name="energia" required>
+            <div class="input-border"></div>
+        </div>
+        <div class="form__group">
+            <label for="worker-date"><i class="fi fi-ss-calendar"></i> Fecha Inicio</label>
+            <input type="date" id="edit-worker-date" name="fecha_Inicio" required>
+            <div class="input-border"></div>
+        </div>
+    </div>
+    
+    <div class="form__row">
+        <div class="form__group">
+            <label for="worker-status"><i class="fi fi-ss-settings"></i> En Ejecución</label>
+            <select id="edit-worker-status" name="ejecucion" required>
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+            </select>
+            <div class="input-border"></div>
+        </div>
+        <div class="form__group">
+            <label for="worker-warranty"><i class="fi fi-ss-shield-check"></i> Límite Garantía</label>
+            <input type="date" id="edit-worker-warranty" name="limite_Garantia" required>
+            <div class="input-border"></div>
+        </div>
+        <div class="form__group">
+            <label for="worker-maintenance"><i class="fi fi-ss-tools"></i> Meses Mantenimiento</label>
+            <input type="number" id="edit-worker-maintenance" name="meses_Mantenimiento" required>
+            <div class="input-border"></div>
+        </div>
+        </div>
+        <button type="submit" class="btn btn--primary">Guardar</button>
+      </form>
+    </div>
+  </div>
+</div>

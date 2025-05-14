@@ -1,0 +1,85 @@
+<div id="editPlaceModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+        <span class="close">&times;</span>
+        <h3><i class="fi fi-ss-building"></i> Editar Lugar</h3></div>
+        <div class="modal-body">
+        <form class="form">
+            <div class="form__row">
+            <div class="form__group">
+                <label for="place-name"><i class="fi fi-ss-signature"></i> Nombre</label>
+                <input type="text" id="edit-place-name" name="Nombre" required>
+                <div class="input-border"></div>
+            </div>
+            <div class="form__group">
+                <label for="place-location"><i class="fi fi-ss-map-marker"></i> Ubicación</label>
+                <input type="text" id="edit-place-location" name="Ubicacion" required>
+                <div class="input-border"></div>
+            </div>
+        </div>
+        
+        <div class="form__row">
+            <div class="form__group">
+                <label for="place-schedule"><i class="fi fi-ss-clock"></i> Horario</label>
+                <input type="text" id="edit-place-schedule" name="Horario" placeholder="Ej: 8:00 AM - 7:00 PM" required>
+                <div class="input-border"></div>
+            </div>
+            <div class="form__group">
+                <label for="place-capacity"><i class="fi fi-ss-users"></i> Capacidad de Personas</label>
+                <input type="number" id="edit-place-capacity" name="Capacidad_Personas" required>
+                <div class="input-border"></div>
+            </div>
+        </div>
+        
+        <div class="form__row">
+            <div class="form__group">
+                <label for="place-dependency"><i class="fi fi-ss-sitemap"></i> Dependencia</label>
+                <input type="text" id="edit-place-dependency" name="Dependencia" required>
+                <div class="input-border"></div>
+            </div>
+            <div class="form__group">
+                <label for="place-services"><i class="fi fi-ss-concierge-bell"></i> Servicios</label>
+                <input type="text" id="edit-place-services" name="Servicios" required>
+                <div class="input-border"></div>
+            </div>
+        </div>
+        
+        <div class="form__row">
+            <div class="form__group">
+                <label for="place-priority"><i class="fi fi-ss-exclamation"></i> Prioridad</label>
+                <select id="edit-place-priority" name="Prioridad" required>
+                    <option value="Alta">Alta</option>
+                    <option value="Media">Media</option>
+                    <option value="Baja">Baja</option>
+                </select>
+                <div class="input-border"></div>
+            </div>
+            <div class="form__group">
+                <label for="place-equipment"><i class="fi fi-ss-tools"></i> Equipamiento</label>
+                <input type="text" id="edit-place-equipment" name="Equimamiento" required>
+                <div class="input-border"></div>
+            </div>
+        </div>
+
+        <div class="form__row">
+            <div class="form__group">
+                <label for="place-access"><i class="fi fi-ss-wheelchair"></i> Accesibilidad</label>
+                <select id="edit-place-access" name="Accesibilidad" required>
+                    <option value="Todo el MUndo">Todo el Mundo</option>
+                    <option value="Personas Específicas">Personas Específicas</option>
+                    <option value="Personal Autorizado">Personal Autorizado</option>
+                </select>
+                <div class="input-border"></div>
+            </div>
+            <div class="form__group">
+                <label for="place-date"><i class="fi fi-ss-calendar-plus"></i> Fecha Creación</label>
+                    <input type="number" id="edit-place-date" name="Fecha_creacion" placeholder="Año (YYYY)" required>
+                    <div class="input-border"></div>
+            </div>
+        </div>
+        
+            <button type="submit" class="btn btn--primary">Guardar</button>
+        </form>
+    </div>
+  </div>
+</div>
