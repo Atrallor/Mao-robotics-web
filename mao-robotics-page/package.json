@@ -1,0 +1,12 @@
+{
+  "name": "mao-robotics-page",
+  "version": "1.0.0",
+  "main": "eslint.config.js",
+  "scripts": {
+    "build": "echo 'No build step required'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
