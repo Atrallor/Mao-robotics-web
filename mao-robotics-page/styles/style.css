@@ -313,6 +313,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     transform: translateY(-2px);
 }
 
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; 
+    margin-bottom: 1rem;
+}
+
 .table__content {
     width: 100%;
     background: rgba(20, 20, 40, 0.6);
@@ -542,6 +549,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         font-size: 1.5rem;
     }
 
+    .tabs{
+        flex-wrap: wrap;
+    }
+
     .card-header h3 {
         font-size: 1.1rem;
     }
@@ -620,9 +631,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 @media (max-width: 480px) {
 
+    h2.tittle-section{
+        font-size: 1rem;
+    }
+
     .table__content th,
     .table__content td {
-        padding: 0.6rem 0.3rem;
+        padding: 0.5rem;
         font-size: 0.8rem;
     }
 
@@ -635,6 +650,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         width: 30px;
         height: 30px;
         font-size: 0.8rem;
+    }
+    .card-body{
+        margin-right: -4rem;
+    }
+    .btn--primary{
+        margin-left: -0.2rem;
+    }
+    .form-actions{
+        margin-left: -2rem;
+    }
+    .form-row{
+        width: 100%;
     }
 }
 
@@ -1020,7 +1047,8 @@ body {
 
 .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
     color: rgba(255, 255, 255, 0.9);
 }
 
