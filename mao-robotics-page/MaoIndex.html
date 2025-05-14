@@ -1,27 +1,55 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/navbar.css">
-    <link rel="stylesheet" href="./styles/modals.css">
-  <title>Mao Company</title>
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-straight/css/uicons-bold-straight.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-straight/css/uicons-solid-straight.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-straight/css/uicons-regular-straight.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/navbar.css">
+  <link rel="stylesheet" href="./styles/modals.css">
+  <title>Mao Robotics COMPANY</title>
 </head>
 
 <body>
-  <h1>Mao Robotics COMPANY</h1>
-  <a href="./index.html" style="display: inline-block; padding: 8px 16px; background-color: #140c1a; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">Volver a Página Principal</a>
+  <header class="header">
+    <div class="logo">
+      <div class="header__content">
+        <img alt="Mao Robotics Logo" src="./assets/Logo.png" />
+      </div>
+    </div>
+  </header>
 
-  <div class="tabs">
-    <button class="tab-button active" data-tab="compatibility">Compatibilidades</button>
-    <button class="tab-button" data-tab="androids">Androides</button>
-    <button class="tab-button" data-tab="phsycos">Phsycos</button>
-    <button class="tab-button" data-tab="traits">Rasgos</button>
-    <button class="tab-button" data-tab="accesories">Accesorios</button>
-    <button class="tab-button" data-tab="categories">Categorías</button>
-  </div>
+  <div class="container">
+    <h1>Mao Robotics COMPANY</h1>
+    <a href="./index.html" class="back-button">
+      <i class="fi fi-ss-arrow-left"></i> Volver a Página Principal
+    </a>
+
+    <nav class="tabs">
+      <div class="tabs-container">
+        <button class="tab-button active" data-tab="compatibility">
+          <i class="fi fi-ss-link"></i> Compatibilidades
+        </button>
+        <button class="tab-button" data-tab="androids">
+          <i class="fi fi-ss-robot"></i> Androides
+        </button>
+        <button class="tab-button" data-tab="phsycos">
+          <i class="fi fi-ss-brain"></i> Phsycos
+        </button>
+        <button class="tab-button" data-tab="traits">
+          <i class="fi fi-ss-star"></i> Rasgos
+        </button>
+        <button class="tab-button" data-tab="accesories">
+          <i class="fi fi-ss-cube"></i> Accesorios
+        </button>
+        <button class="tab-button" data-tab="categories">
+          <i class="fi fi-ss-tags"></i> Categorías
+        </button>
+      </div>
+    </nav>
 
  
   <div id="compatibility" class="tab-content active">
@@ -327,6 +355,11 @@
       </table>
     </div>
   </div>
+
+  <footer class="footer">
+    <p>© 2025 Mao Robotics - Panel de Control</p>
+    <p>Germán Alejandro Marcillo Martínez, Juan David Moncayo López y Marian Alejandra Pabón Caicedo</p>
+  </footer>
   <script src="mao.js"></script>
 </body>
 </html>
